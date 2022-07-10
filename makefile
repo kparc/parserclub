@@ -1,7 +1,8 @@
+# t expects you have at least some version of gcc installed:
 C=$(shell env env which gcc-11||which gcc-10||env which gcc-9||env which gcc-8||echo gcc)
 O=-O2 -W -Wno-variadic-macros -Wno-dollar-in-identifier-extension -Wno-empty-body
 
-T=x.in
+T=in/x.in
 
 all: clean c t y
 	./c $T        > o/c.out
@@ -30,19 +31,19 @@ g:
 
 # brackets
 b: c
-	./c xxx.in
+	./c in/xxx.in
 
 # numerals
 bb: c
-	./c xxxx.in
+	./c in/xxxx.in
 
 # literals
 bbb: c
-	./c xxxxx.in
+	./c in/xxxxx.in
 
 # strings
 bbbb: c
-	./c xxxxxx.in
+	./c in/xxxxxx.in
 
 clean:
 	rm -rf o c t y && mkdir o
