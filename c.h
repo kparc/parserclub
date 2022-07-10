@@ -1,5 +1,6 @@
 #include<stdio.h>  //printf
 #include<stdlib.h> //exit
+#include<string.h> //memcpy
 
 typedef int I;typedef long long J,*T;typedef unsigned long long UJ;typedef void V;typedef char C,*S;
 
@@ -45,25 +46,30 @@ _ T count(T x){R A(xt?xn:1);}
 _ T one(T x){R xt&&xn==1?first(x):x;}
 
 #define Oe(e) if(e)O("err: %s\n",s),exit(1);
-#define Oc(x) (x>9&&x<127?O("%c",x):O("%.8s",(S)&G[x+128]))
+#define Oc(x) ( \
+	x>9&&x<127?O("%c",x) \
+	:-64<x?O("\"%s\"",(S)G[x+64]) \
+	:O("%.8s",(S)&G[x+128]) \
+	)
 _ T o(T x){$(!xt,Oc((C)(J)x))$(-1==xn,O("%lld",(J)*x))
 	{O("(");N(xn,$($t(x[i]),o(Xx))Oc(Xc);i<xn-1?O(";"):0)O(")");}R x;}     //!< printer
+
 ZV pc(){N(128,O("%c",(32>i)?'_':(i)))O("\n");N(128,O("%c", c[i]))O("\n");} //!< dump class map
 
 T e(T),t(),n();I q(),v();Z J i;Z C s[10100];   //!< forward decls, \i tape position, \s tape buffer
 Z FILE*in;ZV f1(S s,I c){in=1<c?fopen(s,"r"):stdin;Oe(!in);}Z I f0(){R fclose(in);} //!< fio
 
-#if 1
-#define BLIM 32           // max nesting depth
+#if 1                     //!< bracket balancer
+#define BLIM 32           //!< max nesting depth
 //                        !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
 Z I _b;Z C B[BLIM],bm[]="        ()                                                 ( )                             ( ) ";
-Z I bb(){I x=s[i],r=bm[128>x?x-32:0];P(' '==r,x)P(')'==r,Oe(B[_b--]!=x-1-x/64)x)Oe(BLIM==++_b)R B[_b]=x;}ZV b0(){Oe(2-_b);} //!< bracket balancer
+Z I bb(){I x=s[i],r=bm[128>x?x-32:0];P(' '==r,x)P(')'==r,Oe(B[_b--]!=x-1-x/64)x)Oe(BLIM==++_b)R B[_b]=x;}ZV b0(){Oe(2-_b);}
 #else
 Z I _b;Z I bb(){R s[i];}ZV b0(){}
 #endif
 
 //! parsers
-//S sc(S s,I c){W(*s-c)P(!*s++,(S)0)R s;}S bq(S x){W((x=sc(++x,'"'))&&!({I i=0;W('\\'==x[--i]);1&i;})){};R x;} //!< TODO parse quoted string w/esc sequences
+Z S sc(S s,I c){W(*s-c)P(!*s++,(S)0)R s;}S bq(S x){W((x=sc(++x,'"'))&&!({I i=0;W('\\'==x[--i]);1&i;})){};R x;}   //!< parse quoted string w/esc sequences
 Z J sJ(S a,I*n){C c;J i=0,r=*n=0;W((c=*a++)&&IN('0',c,'9'))i++,r=r*10u+((I)c-'0');R*n=i,r;}                    //!< parse signed long long
 
 //:~

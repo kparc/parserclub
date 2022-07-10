@@ -12,4 +12,5 @@ make time       # benchpress t/c/y
 make b          # test brackets
 make bb         # test numerals
 make bbb        # test literals
+make bbbb       # test strings
 ```
