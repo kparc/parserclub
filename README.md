@@ -11,4 +11,5 @@ make            # validate c<>t
 make time       # benchpress t/c/y
 make b          # test brackets
 make bb         # test numerals
+make bbb        # test literals
 ```
