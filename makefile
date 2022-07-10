@@ -36,6 +36,10 @@ b: c
 bb: c
 	./c xxxx.in
 
+# literals
+bbb: c
+	./c xxxxx.in
+
 clean:
 	rm -rf o c t y && mkdir o
 

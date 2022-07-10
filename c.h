@@ -28,6 +28,8 @@ typedef int I;typedef long long J,*T;typedef unsigned long long UJ;typedef void 
 #define L  O("\n")
 
 Z T b[100100];Z T p=(J*)b+1;Z C c[256];
+#define GLIM 32
+Z J G[GLIM]={0};I g=0;
 
 _ T tn(J n){T x=p+$n(p)+1;$n(p)+=8;R xn=n,x;}
 _ V t0(){$n(p)=0;}
@@ -43,9 +45,10 @@ _ T count(T x){R A(xt?xn:1);}
 _ T one(T x){R xt&&xn==1?first(x):x;}
 
 #define Oe(e) if(e)O("err: %s\n",s),exit(1);
-#define Oc(x) (x>9&&x<127?O("%c",x):O("<0x%x>",x))
-_ T o(T x){$(!xt,Oc((C)(J)x))$(-1==xn,O("%lld",(J)*x)){O("(");N(xn,$($t(x[i]),o(Xx))Oc(Xc);i<xn-1?O(";"):0)O(")");}R x;}     //!< printer
-ZV pc(){N(128,O("%c", (32>i)?'_':(i)))O("\n");N(128,O("%c", c[i]))O("\n");} //!< dump class map
+#define Oc(x) (x>9&&x<127?O("%c",x):O("%.8s",(S)&G[x+128]))
+_ T o(T x){$(!xt,Oc((C)(J)x))$(-1==xn,O("%lld",(J)*x))
+	{O("(");N(xn,$($t(x[i]),o(Xx))Oc(Xc);i<xn-1?O(";"):0)O(")");}R x;}     //!< printer
+ZV pc(){N(128,O("%c",(32>i)?'_':(i)))O("\n");N(128,O("%c", c[i]))O("\n");} //!< dump class map
 
 T e(T),t(),n();I q(),v();Z J i;Z C s[10100];   //!< forward decls, \i tape position, \s tape buffer
 Z FILE*in;ZV f1(S s,I c){in=1<c?fopen(s,"r"):stdin;Oe(!in);}Z I f0(){R fclose(in);} //!< fio
