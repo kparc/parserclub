@@ -29,7 +29,7 @@ g:
 	$C -E y.tab.c |grep -v '^# *[0-9]'|indent -st -l180 |sed -e 's/\<_T/_ T/g' > y.c
 	$C -ggdb3 y.c -o y
 
-# brackets
+# brackets (should fail)
 b: c
 	./c in/xxx.in
 
