@@ -44,9 +44,6 @@ bbb: c
 bbbb: c
 	./c xxxxxx.in
 
-ml: c
-	./c ml.k
-
 clean:
 	rm -rf o c t y && mkdir o
 
