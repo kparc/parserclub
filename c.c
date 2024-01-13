@@ -14,7 +14,7 @@ I v(){R';'<c[s[i-1]]&&'0'!=c[s[i-1]]&&'n'!=c[s[i-1]]&&'"'!=c[s[i-1]];}I q(){R';'
 T e(T x){T f;P(q(),x);I v_=v();R(f=t(),v())>v_?t3(f,x,e(t())):t2(x,e(f));}       //!< change > to < and reorder with v_
 T t(){P(q(),tn(0))T x='('-s[i]?n():3>(J)count(x=E(A(s[i])))?A(x[1]):x;W('a'==c[s[i]]){x='['==s[i]?E(x):t2(n(),x);}R x;}
 
-T prs(S x){_b=i=g=0,*s='(';T r=t();R b0(),r;}
-I main(I c,S*v){c0();f1(v[1],c);W(fgets(s+1,10000,in))t0(),o(prs(s)),L;R f0();}
+T prs(){_b=i=g=0,*s='(';T r=t();R b0(),r;}
+I main(I c,S*v){c0();f1(v[1],c);W(fgets(s+1,10000,in))t0(),o(prs()),L;R f0();}
 
 //:~

@@ -54,7 +54,7 @@ _ T one(T x){R xt&&xn==1?first(x):x;}
 _ T o(T x){$(!xt,Oc((C)(J)x))$(-1==xn,O("%lld",(J)*x))
 	{O("(");N(xn,$($t(x[i]),o(Xx))Oc(Xc);i<xn-1?O(";"):0)O(")");}R x;}     //!< printer
 
-ZV pc(){N(128,O("%c",(32>i)?'_':(i)))O("\n");N(128,O("%c", c[i]))O("\n");} //!< dump class map
+ZV pc(){N(128,O("%c",(32>i)?'_':(C)(i)))O("\n");N(128,O("%c", c[i]))O("\n");} //!< dump class map
 
 T e(T),t(),n();I q(),v();Z J i;Z C s[10100];   //!< forward decls, \i tape position, \s tape buffer
 Z FILE*in;ZV f1(S s,I c){in=1<c?fopen(s,"r"):stdin;Oe(!in);}Z I f0(){R fclose(in);} //!< fio
